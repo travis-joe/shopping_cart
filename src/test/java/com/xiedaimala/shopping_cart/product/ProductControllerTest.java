@@ -1,6 +1,6 @@
 package com.xiedaimala.shopping_cart.product;
 
-import com.xiedaimala.shopping_cart.product.model.*;
+import com.xiedaimala.shopping_cart.product.model.api.*;
 import com.xiedaimala.shopping_cart.product.validator.CreateProductRequestValidator;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
