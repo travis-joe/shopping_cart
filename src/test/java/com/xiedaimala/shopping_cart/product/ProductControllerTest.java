@@ -1,6 +1,6 @@
 package com.xiedaimala.shopping_cart.product;
 
-import com.xiedaimala.shopping_cart.product.model.GetProductResponse;
+import com.xiedaimala.shopping_cart.product.model.*;
 import com.xiedaimala.shopping_cart.product.validator.CreateProductRequestValidator;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
@@ -18,5 +18,26 @@ public class ProductControllerTest {
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
+
+    @Test
+    public void listProducts() {
+        ResponseEntity<ListProductResponse> response = productController.listProducts();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    public void createProduct() {
+        ResponseEntity<CreateProductResponse> response = productController.createProduct(new CreateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+    }
+
+    @Test
+    public void updateProduct() {
+        ResponseEntity<UpdateProductResponse> response = productController.updateProduct("123", new UpdateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+
 
 }
