@@ -32,7 +32,11 @@ public class ProductController {
     @GetMapping("/products/{productId}")
     public ResponseEntity<GetProductResponse> getProduct(@PathVariable int productId) {
         Product product = productDao.get(productId);
-        return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
+        if (product == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
+        }
     }
 
     /**
@@ -42,7 +46,6 @@ public class ProductController {
     public ResponseEntity<CreateProductResponse> createProduct(@RequestBody CreateProductRequest createProductRequest) {
         // 实现
         boolean validate = createProductRequestValidator.validate(createProductRequest);
-
         return new ResponseEntity<>(new CreateProductResponse(), HttpStatus.CREATED);
     }
 

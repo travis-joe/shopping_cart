@@ -1,5 +1,6 @@
 package com.xiedaimala.shopping_cart.product.model;
 
+import com.xiedaimala.shopping_cart.product.model.api.CreateProductRequest;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
