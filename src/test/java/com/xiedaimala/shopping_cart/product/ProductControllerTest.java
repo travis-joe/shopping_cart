@@ -6,7 +6,6 @@ import com.xiedaimala.shopping_cart.product.model.ProductDao;
 import com.xiedaimala.shopping_cart.product.controller.model.*;
 import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -18,7 +17,7 @@ public class ProductControllerTest {
 
     @Test
     public void shouldGetProductSuccessfully() {
-        ResponseEntity<GetProductResponse> response = productController.getProduct(123);
+        ResponseEntity<GetProductResponse> response = productController.getProduct(1);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
@@ -38,7 +37,7 @@ public class ProductControllerTest {
 
     @Test
     public void updateProduct() {
-        ResponseEntity<UpdateProductResponse> response = productController.updateProduct(123L, new UpdateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
+        ResponseEntity<UpdateProductResponse> response = productController.updateProduct(2L, new UpdateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
