@@ -5,15 +5,17 @@ import com.xiedaimala.shopping_cart.product.controller.validator.UpdateProductRe
 import com.xiedaimala.shopping_cart.product.model.ProductDao;
 import com.xiedaimala.shopping_cart.product.controller.model.*;
 import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import static org.easymock.EasyMock.createStrictMock;
 import static org.junit.Assert.assertEquals;
 
 public class ProductControllerTest {
     private ProductDao productDao;
-    private ProductController productController = new ProductController(new CreateProductRequestValidator(), new UpdateProductRequestValidator(), productDao);
+    private ProductController productController = new ProductController(new CreateProductRequestValidator(), new UpdateProductRequestValidator(), createStrictMock(ProductDao.class));
 
     @Test
     public void shouldGetProductSuccessfully() {
