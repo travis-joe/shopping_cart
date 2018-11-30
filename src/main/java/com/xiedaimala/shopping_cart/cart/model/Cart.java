@@ -3,21 +3,21 @@ package com.xiedaimala.shopping_cart.cart.model;
 import com.xiedaimala.shopping_cart.product.model.Product;
 
 public class Cart {
-    private String id;
+    private long id;
     private String name;
     private Product products;
 
-    public Cart(String id, String name, Product products) {
+    public Cart(long id, String name, Product products) {
         this.id = id;
         this.name = name;
         this.products = products;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
