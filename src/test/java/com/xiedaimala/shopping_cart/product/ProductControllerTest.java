@@ -1,6 +1,7 @@
 package com.xiedaimala.shopping_cart.product;
 
 import com.xiedaimala.shopping_cart.product.controller.ProductController;
+import com.xiedaimala.shopping_cart.product.controller.validator.UpdateProductRequestValidator;
 import com.xiedaimala.shopping_cart.product.model.ProductDao;
 import com.xiedaimala.shopping_cart.product.controller.model.*;
 import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
@@ -13,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductControllerTest {
     private ProductDao productDao;
-    private ProductController productController = new ProductController(new CreateProductRequestValidator(), productDao);
+    private ProductController productController = new ProductController(new CreateProductRequestValidator(), new UpdateProductRequestValidator(), productDao);
 
     @Test
     public void shouldGetProductSuccessfully() {
@@ -37,7 +38,7 @@ public class ProductControllerTest {
 
     @Test
     public void updateProduct() {
-        ResponseEntity<UpdateProductResponse> response = productController.updateProduct("123", new UpdateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
+        ResponseEntity<UpdateProductResponse> response = productController.updateProduct(123L, new UpdateProductRequest("豆瓣酱", "猫咪喜欢吃", 112));
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
