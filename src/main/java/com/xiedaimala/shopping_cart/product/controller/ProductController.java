@@ -1,5 +1,6 @@
 package com.xiedaimala.shopping_cart.product.controller;
 
+import com.xiedaimala.shopping_cart.product.controller.validator.UpdateProductRequestValidator;
 import com.xiedaimala.shopping_cart.product.model.*;
 import com.xiedaimala.shopping_cart.product.controller.model.*;
 import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
@@ -14,9 +15,11 @@ public class ProductController {
 
     private ProductDao productDao;
     private CreateProductRequestValidator createProductRequestValidator;
+    private UpdateProductRequestValidator updateProductRequestValidator;
 
-    public ProductController(CreateProductRequestValidator createProductRequestValidator, ProductDao productDao) {
+    public ProductController(CreateProductRequestValidator createProductRequestValidator, UpdateProductRequestValidator updateProductRequestValidator,ProductDao productDao) {
         this.createProductRequestValidator = createProductRequestValidator;
+        this.updateProductRequestValidator = updateProductRequestValidator;
         this.productDao = productDao;
     }
 
@@ -74,7 +77,14 @@ public class ProductController {
      * Update product
      */
     @PutMapping("/products/{productId}")
-    public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable String productId, @RequestBody UpdateProductRequest updateProductRequest) {
-        return new ResponseEntity<>(new UpdateProductResponse(), HttpStatus.OK);
+    public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable Long productId, @RequestBody UpdateProductRequest updateProductRequest) {
+        boolean validate = updateProductRequestValidator.validate(updateProductRequest);
+        if(validate){
+            Product product = productDao.save(updateProductRequest.toProduct(productId));
+            if(product != null){
+                return new ResponseEntity<>(new UpdateProductResponse(product), HttpStatus.CREATED);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

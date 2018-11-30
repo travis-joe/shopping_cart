@@ -1,5 +1,7 @@
 package com.xiedaimala.shopping_cart.product.controller.model;
 
+import com.xiedaimala.shopping_cart.product.model.Product;
+
 public class UpdateProductRequest {
 
     private String name;
@@ -15,6 +17,9 @@ public class UpdateProductRequest {
         this.price = price;
     }
 
+    public Product toProduct(Long id) {
+        return new Product(id, name, description, price);
+    }
 
     public String getName() {
         return name;
