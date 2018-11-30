@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
 
@@ -23,7 +25,12 @@ public class ProductController {
      */
     @GetMapping("/products")
     public ResponseEntity<ListProductResponse> listProducts() {
-        return new ResponseEntity<>(new ListProductResponse(), HttpStatus.OK);
+        List<Product> products = productDao.findAll();
+        if(products.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else {
+            return new ResponseEntity<>(new ListProductResponse(products), HttpStatus.OK);
+        }
     }
 
     /**
@@ -47,8 +54,13 @@ public class ProductController {
     public ResponseEntity<CreateProductResponse> createProduct(@RequestBody CreateProductRequest createProductRequest) {
         // 实现
         boolean validate = createProductRequestValidator.validate(createProductRequest);
-
-        return new ResponseEntity<>(new CreateProductResponse(), HttpStatus.CREATED);
+        if(validate){
+            Product product = productDao.save(createProductRequest.toProduct());
+            if(product != null){
+                return new ResponseEntity<>(new CreateProductResponse(product), HttpStatus.CREATED);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     /*

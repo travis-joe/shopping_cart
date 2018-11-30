@@ -1,5 +1,7 @@
 package com.xiedaimala.shopping_cart.product.controller.model;
 
+import com.xiedaimala.shopping_cart.product.model.Product;
+
 public class CreateProductRequest {
 
     private String name;
@@ -10,6 +12,10 @@ public class CreateProductRequest {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    public Product toProduct(){
+        return new Product(this.name, this.description, this.price);
     }
 
     public String getName() {

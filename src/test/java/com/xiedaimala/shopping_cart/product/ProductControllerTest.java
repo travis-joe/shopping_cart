@@ -5,6 +5,7 @@ import com.xiedaimala.shopping_cart.product.model.ProductDao;
 import com.xiedaimala.shopping_cart.product.controller.model.*;
 import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

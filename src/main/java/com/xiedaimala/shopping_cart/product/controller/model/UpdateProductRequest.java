@@ -15,6 +15,7 @@ public class UpdateProductRequest {
         this.price = price;
     }
 
+
     public String getName() {
         return name;
     }
