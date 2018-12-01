@@ -1,16 +1,16 @@
-package com.xiedaimala.shopping_cart.cart;
+package com.xiedaimala.shopping_cart.cart.controller;
 
-import com.xiedaimala.shopping_cart.cart.model.GetCartResponse;
-import com.xiedaimala.shopping_cart.cart.model.ListCartResponse;
-import com.xiedaimala.shopping_cart.cart.model.UpdateCartRequest;
-import com.xiedaimala.shopping_cart.cart.model.UpdateCartResponse;
+import com.xiedaimala.shopping_cart.cart.view.GetCartResponse;
+import com.xiedaimala.shopping_cart.cart.view.ListCartResponse;
+import com.xiedaimala.shopping_cart.cart.view.UpdateCartRequest;
+import com.xiedaimala.shopping_cart.cart.view.UpdateCartResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CardController {
-    public CardController() {
+public class CartController {
+    public CartController() {
     }
 
     @GetMapping("/carts/{cartID}")

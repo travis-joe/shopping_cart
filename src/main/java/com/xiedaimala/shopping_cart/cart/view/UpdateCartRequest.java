@@ -1,4 +1,4 @@
-package com.xiedaimala.shopping_cart.cart.model;
+package com.xiedaimala.shopping_cart.cart.view;
 
 import java.util.List;
 
