@@ -1,21 +1,24 @@
-package com.xiedaimala.shopping_cart.product.controller.model;
+package com.xiedaimala.shopping_cart.product.view;
 
 import com.xiedaimala.shopping_cart.product.model.Product;
 
-public class CreateProductRequest {
+public class UpdateProductRequest {
 
     private String name;
     private String description;
     private double price;
 
-    public CreateProductRequest(String name, String description, double price) {
+    public UpdateProductRequest() {
+    }
+
+    public UpdateProductRequest(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public Product toProduct(){
-        return new Product(this.name, this.description, this.price);
+    public Product toProduct(Long id) {
+        return new Product(id, name, description, price);
     }
 
     public String getName() {

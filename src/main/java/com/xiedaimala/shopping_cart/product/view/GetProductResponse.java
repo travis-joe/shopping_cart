@@ -1,16 +1,16 @@
-package com.xiedaimala.shopping_cart.product.controller.model;
+package com.xiedaimala.shopping_cart.product.view;
 
 import com.xiedaimala.shopping_cart.product.model.Product;
 
-public class CreateProductResponse {
+public class GetProductResponse {
 
     private Product product;
 
-    public CreateProductResponse() {
+    public GetProductResponse(Product product) {
+        this.product = product;
     }
 
-    public CreateProductResponse(Product product) {
-        this.product = product;
+    public GetProductResponse() {
     }
 
     public Product getProduct() {

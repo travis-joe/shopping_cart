@@ -1,4 +1,4 @@
-package com.xiedaimala.shopping_cart.product.controller.model;
+package com.xiedaimala.shopping_cart.product.view;
 
 import com.xiedaimala.shopping_cart.product.model.Product;
 

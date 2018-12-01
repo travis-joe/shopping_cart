@@ -1,11 +1,10 @@
 package com.xiedaimala.shopping_cart.product;
 
 import com.xiedaimala.shopping_cart.product.controller.ProductController;
-import com.xiedaimala.shopping_cart.product.controller.validator.UpdateProductRequestValidator;
+import com.xiedaimala.shopping_cart.product.view.validator.UpdateProductRequestValidator;
 import com.xiedaimala.shopping_cart.product.model.ProductDao;
-import com.xiedaimala.shopping_cart.product.controller.model.*;
-import com.xiedaimala.shopping_cart.product.controller.validator.CreateProductRequestValidator;
-import org.junit.Before;
+import com.xiedaimala.shopping_cart.product.view.*;
+import com.xiedaimala.shopping_cart.product.view.validator.CreateProductRequestValidator;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
