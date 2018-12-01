@@ -1,4 +1,4 @@
-package com.xiedaimala.shopping_cart.cart.model;
+package com.xiedaimala.shopping_cart.cartItem.model;
 
 import com.xiedaimala.shopping_cart.product.model.Product;
 import com.xiedaimala.shopping_cart.user.model.User;
@@ -13,7 +13,7 @@ public class CartItem {
     private long id;
 
     @Column(name = "quantity")
-    private Integer quantity;
+    private long quantity;
 
     @OneToOne(fetch = FetchType.LAZY)
     @Column(name = "product_id")
@@ -26,7 +26,7 @@ public class CartItem {
     public CartItem() {
     }
 
-    public CartItem(Integer quantity, Product product, User user) {
+    public CartItem(long quantity, Product product, User user) {
         this.quantity = quantity;
         this.product = product;
         this.user = user;
@@ -37,11 +37,11 @@ public class CartItem {
     }
 
 
-    public Integer getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 

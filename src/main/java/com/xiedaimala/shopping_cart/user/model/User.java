@@ -1,6 +1,6 @@
 package com.xiedaimala.shopping_cart.user.model;
 
-import com.xiedaimala.shopping_cart.cart.model.CartItem;
+import com.xiedaimala.shopping_cart.cartItem.model.CartItem;
 import com.xiedaimala.shopping_cart.order.model.Order;
 
 import javax.persistence.*;

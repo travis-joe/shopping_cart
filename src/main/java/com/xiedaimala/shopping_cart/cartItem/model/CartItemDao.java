@@ -1,4 +1,4 @@
-package com.xiedaimala.shopping_cart.cart.model;
+package com.xiedaimala.shopping_cart.cartItem.model;
 
 import com.xiedaimala.shopping_cart.user.model.User;
 import org.springframework.data.repository.CrudRepository;

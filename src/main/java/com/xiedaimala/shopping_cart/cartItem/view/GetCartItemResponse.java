@@ -1,15 +1,16 @@
-package com.xiedaimala.shopping_cart.cart.view;
+package com.xiedaimala.shopping_cart.cartItem.view;
 
-import com.xiedaimala.shopping_cart.cart.model.CartItem;
+import com.xiedaimala.shopping_cart.cartItem.model.CartItem;
 
-public class UpdateCartResponse {
+public class GetCartItemResponse {
+
     private CartItem cartItem;
 
-    public UpdateCartResponse(CartItem cartItem) {
+    public GetCartItemResponse(CartItem cartItem) {
         this.cartItem = cartItem;
     }
 
-    public UpdateCartResponse() {
+    public GetCartItemResponse() {
     }
 
     public CartItem getCartItem() {

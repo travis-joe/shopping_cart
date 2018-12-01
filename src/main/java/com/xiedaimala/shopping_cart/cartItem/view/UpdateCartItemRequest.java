@@ -1,17 +1,17 @@
-package com.xiedaimala.shopping_cart.cart.view;
+package com.xiedaimala.shopping_cart.cartItem.view;
 
 import java.util.List;
 
-public class UpdateCartRequest {
+public class UpdateCartItemRequest {
     private String name;
     private List<String> productIds;
 
-    public UpdateCartRequest(String name, List<String> productIds) {
+    public UpdateCartItemRequest(String name, List<String> productIds) {
         this.name = name;
         this.productIds = productIds;
     }
 
-    public UpdateCartRequest() {
+    public UpdateCartItemRequest() {
     }
 
     public String getName() {
