@@ -20,20 +20,20 @@ public class CartItemControllerTest {
 
     @Test
     public void getCart() {
-        ResponseEntity<GetCartItemResponse> response = cartController.getCart("123");
+        ResponseEntity<GetCartItemResponse> response = cartController.getCartItem("123");
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
     public void listCarts() {
-        ResponseEntity<ListCartItemResponse> response = cartController.listCarts();
+        ResponseEntity<ListCartItemResponse> response = cartController.listCartItem();
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
     public void updateCart() {
         List<String> products = new ArrayList<String>();
-        ResponseEntity<UpdateCartItemResponse> response = cartController.updateCart("123", new UpdateCartItemRequest("谁的购物车", products));
+        ResponseEntity<UpdateCartItemResponse> response = cartController.updateCartItem("123", new UpdateCartItemRequest("谁的购物车", products));
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

@@ -8,16 +8,16 @@ import javax.persistence.*;
 @Entity
 @Table(name="order")
 public class Order {
-    @Column(name="id")
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name="user_id")
+    @JoinColumn(name="user_id")
     private User user;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @Column(name="product_id")
+    @JoinColumn(name="product_id")
     private Product product;
 
     @Column(name="quantity")

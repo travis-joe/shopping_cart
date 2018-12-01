@@ -5,16 +5,16 @@ import com.xiedaimala.shopping_cart.order.model.Order;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
 public class User {
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private long id;
 
-    @Column(name="name")
+    @Column(name="name",unique = true)
     private String name;
 
     @Column(name="password")
@@ -23,12 +23,12 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "user")
-    private List<CartItem> cartItems;
+    private Set<CartItem> cartItems;
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "user")
-    private List<Order> orders;
+    private Set<Order> orders;
 
     public User() {
     }
