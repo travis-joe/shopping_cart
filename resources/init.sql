@@ -1,4 +1,4 @@
-CREATE TABLE `userId`
+CREATE TABLE `user`
 (
   id       INTEGER PRIMARY KEY NOT NULL,
   name     VARCHAR(20)         NOT NULL,
