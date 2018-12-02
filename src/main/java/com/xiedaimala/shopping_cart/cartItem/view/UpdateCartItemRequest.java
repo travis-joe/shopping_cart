@@ -3,30 +3,20 @@ package com.xiedaimala.shopping_cart.cartItem.view;
 import java.util.List;
 
 public class UpdateCartItemRequest {
-    private String name;
-    private List<String> productIds;
-
-    public UpdateCartItemRequest(String name, List<String> productIds) {
-        this.name = name;
-        this.productIds = productIds;
-    }
+    private long quantity;
 
     public UpdateCartItemRequest() {
     }
 
-    public String getName() {
-        return name;
+    public UpdateCartItemRequest(long quantity) {
+        this.quantity = quantity;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public long getQuantity() {
+        return quantity;
     }
 
-    public List<String> getProductIds() {
-        return productIds;
-    }
-
-    public void setProductIds(List<String> productIds) {
-        this.productIds = productIds;
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
     }
 }

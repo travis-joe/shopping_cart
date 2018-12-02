@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CartController {
     private UserDao userDao;
@@ -26,14 +28,21 @@ public class CartController {
         this.cartItemDao = cartItemDao;
     }
 
-    @GetMapping("/cartItems/{cartID}")
-    public ResponseEntity<GetCartItemResponse> getCartItem(@PathVariable String cartID) {
-        return new ResponseEntity<>(new GetCartItemResponse(), HttpStatus.OK);
+    @GetMapping("/cartItems/{cartItemID}")
+    public ResponseEntity<GetCartItemResponse> getCartItem(@PathVariable long cartItemID) {
+        CartItem cartItem = cartItemDao.getCartItemById(cartItemID);
+        if(cartItem != null) {
+            return new ResponseEntity<>(new GetCartItemResponse(cartItem), HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        }
     }
 
     @GetMapping("/cartItems")
     public ResponseEntity<ListCartItemResponse> listCartItem() {
-        return new ResponseEntity<>(new ListCartItemResponse(), HttpStatus.OK);
+        List<CartItem> cartItems = cartItemDao.findAll();
+        return new ResponseEntity<>(new ListCartItemResponse(cartItems), HttpStatus.OK);
     }
 
     @PostMapping("/cartItems")
@@ -44,9 +53,22 @@ public class CartController {
         return new ResponseEntity<>(new CreateCartItemResponse(cartItem), HttpStatus.CREATED);
     }
 
-    @PutMapping("/cartItems/{cartId}")
-    public ResponseEntity<UpdateCartItemResponse> updateCartItem(@PathVariable String cartId, @RequestBody UpdateCartItemRequest updateCartItemRequest){
-        return new ResponseEntity<>(new UpdateCartItemResponse(), HttpStatus.OK);
+    @PutMapping("/cartItems/{cartItemId}")
+    public ResponseEntity<UpdateCartItemResponse> updateCartItem(@PathVariable long cartItemId, @RequestBody UpdateCartItemRequest updateCartItemRequest){
+        CartItem cartItem = cartItemDao.getCartItemById(cartItemId);
+        cartItem.setQuantity(updateCartItemRequest.getQuantity());
+        CartItem cartItemRes = cartItemDao.save(cartItem);
+        return new ResponseEntity<>(new UpdateCartItemResponse(cartItemRes), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/cartItems/{cartItemId}")
+    public ResponseEntity deleteCartItem(@PathVariable long cartItemId) {
+        CartItem cartItem = cartItemDao.getCartItemById(cartItemId);
+        if (cartItem == null) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        cartItemDao.delete(cartItem);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
 }
