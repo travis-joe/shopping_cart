@@ -42,6 +42,9 @@ public class CartController {
     @GetMapping("/cartItems")
     public ResponseEntity<ListCartItemResponse> listCartItem() {
         List<CartItem> cartItems = cartItemDao.findAll();
+        if(cartItems == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(new ListCartItemResponse(cartItems), HttpStatus.OK);
     }
 

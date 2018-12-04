@@ -29,7 +29,7 @@ public class ProductController {
     @GetMapping("/products")
     public ResponseEntity<ListProductResponse> listProducts() {
         List<Product> products = productDao.findAll();
-        if(products.isEmpty()){
+        if(products == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }else {
             return new ResponseEntity<>(new ListProductResponse(products), HttpStatus.OK);

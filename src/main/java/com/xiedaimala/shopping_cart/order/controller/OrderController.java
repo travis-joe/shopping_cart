@@ -22,8 +22,10 @@ public class OrderController {
     public OrderController() {
     }
 
-    public OrderController(OrderDao orderDao) {
+    public OrderController(OrderDao orderDao, UserDao userDao, ProductDao productDao) {
         this.orderDao = orderDao;
+        this.userDao = userDao;
+        this.productDao = productDao;
     }
 
     @GetMapping("/orders")
