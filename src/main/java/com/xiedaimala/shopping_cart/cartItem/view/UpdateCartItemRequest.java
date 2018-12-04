@@ -5,9 +5,6 @@ import java.util.List;
 public class UpdateCartItemRequest {
     private long quantity;
 
-    public UpdateCartItemRequest() {
-    }
-
     public UpdateCartItemRequest(long quantity) {
         this.quantity = quantity;
     }

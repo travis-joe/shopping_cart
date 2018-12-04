@@ -9,9 +9,6 @@ public class UpdateCartItemResponse {
         this.cartItem = cartItem;
     }
 
-    public UpdateCartItemResponse() {
-    }
-
     public CartItem getCartItem() {
         return cartItem;
     }

@@ -19,9 +19,6 @@ public class OrderController {
     private UserDao userDao;
     private ProductDao productDao;
 
-    public OrderController() {
-    }
-
     public OrderController(OrderDao orderDao, UserDao userDao, ProductDao productDao) {
         this.orderDao = orderDao;
         this.userDao = userDao;

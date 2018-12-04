@@ -10,9 +10,6 @@ public class GetCartItemResponse {
         this.cartItem = cartItem;
     }
 
-    public GetCartItemResponse() {
-    }
-
     public CartItem getCartItem() {
         return cartItem;
     }

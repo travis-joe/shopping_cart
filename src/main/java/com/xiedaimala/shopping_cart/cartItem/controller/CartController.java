@@ -19,9 +19,6 @@ public class CartController {
     private ProductDao productDao;
     private CartItemDao cartItemDao;
 
-    public CartController() {
-    }
-
     public CartController(UserDao userDao, ProductDao productDao, CartItemDao cartItemDao) {
         this.userDao = userDao;
         this.productDao = productDao;
@@ -49,9 +46,9 @@ public class CartController {
     }
 
     @PostMapping("/cartItems")
-    public ResponseEntity<CreateCartItemResponse> createCartItem(CreateCartItemRequest createCartItemRequest){
-        User user = userDao.getById(createCartItemRequest.getUser_id());
-        Product product = productDao.getById(createCartItemRequest.getProduct_id());
+    public ResponseEntity<CreateCartItemResponse> createCartItem(@RequestBody CreateCartItemRequest createCartItemRequest){
+        User user = userDao.getById(createCartItemRequest.getUserId());
+        Product product = productDao.getById(createCartItemRequest.getProductId());
         CartItem cartItem = cartItemDao.save(new CartItem(createCartItemRequest.getQuantity(), product,user));
         return new ResponseEntity<>(new CreateCartItemResponse(cartItem), HttpStatus.CREATED);
     }

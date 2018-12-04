@@ -1,33 +1,30 @@
 package com.xiedaimala.shopping_cart.cartItem.view;
 
 public class CreateCartItemRequest {
-    private long user_id;
-    private long product_id;
+    private long userId;
+    private long productId;
     private long quantity;
 
-    public CreateCartItemRequest() {
-    }
-
-    public CreateCartItemRequest(long user_id, long product_id, long quantity) {
-        this.user_id = user_id;
-        this.product_id = product_id;
+    public CreateCartItemRequest(long userId, long productId, long quantity) {
+        this.userId = userId;
+        this.productId = productId;
         this.quantity = quantity;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public long getProduct_id() {
-        return product_id;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(long product_id) {
-        this.product_id = product_id;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public long getQuantity() {

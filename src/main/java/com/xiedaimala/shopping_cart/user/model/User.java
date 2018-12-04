@@ -25,10 +25,10 @@ public class User {
             mappedBy = "user")
     private Set<CartItem> cartItems;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "user")
-    private Set<Order> orders;
+//    @OneToMany(cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER,
+//            mappedBy = "user")
+//    private Set<Order> orders;
 
     public User() {
     }

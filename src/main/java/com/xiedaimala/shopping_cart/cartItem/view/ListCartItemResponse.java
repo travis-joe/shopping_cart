@@ -11,7 +11,8 @@ public class ListCartItemResponse {
         this.cartItems = cartItems;
     }
 
-    public ListCartItemResponse() {
+    public List<CartItem> getCartItems() {
+        return cartItems;
     }
 
     public void setCartItems(List<CartItem> cartItems) {

@@ -8,8 +8,8 @@ CREATE TABLE `user`
 CREATE TABLE `cart_item`
 (
   id         INTEGER PRIMARY KEY NOT NULL,
-  user_id    INTEGER             NOT NULL,
-  product_id INTEGER             NOT NULL,
+  userId    INTEGER             NOT NULL,
+  productId INTEGER             NOT NULL,
   quantity   INTEGER             NOT NULL
 );
 
@@ -24,8 +24,8 @@ CREATE TABLE `product`
 CREATE TABLE `order`
 (
   id         INTEGER PRIMARY KEY NOT NULL,
-  user_id    INTEGER             NOT NULL,
-  product_id INTEGER             NOT NULL,
+  userId    INTEGER             NOT NULL,
+  productId INTEGER             NOT NULL,
   quantity   INTEGER             NOT NULL,
   status     VARCHAR(25)         NOT NULL,
   address    VARCHAR(255)        NOT NULL
