@@ -5,11 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product")
 public class Product {
-
-    /*
-        数据库中表在java代码里的映射和封装
-     */
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

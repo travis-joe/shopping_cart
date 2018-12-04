@@ -6,21 +6,21 @@ import com.xiedaimala.shopping_cart.user.model.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name="order")
+@Table(name = "order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="product_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name="quantity")
+    @Column(name = "quantity")
     private long quantity;
 
     @Column(name = "status")

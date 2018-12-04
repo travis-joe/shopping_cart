@@ -6,7 +6,7 @@ import com.xiedaimala.shopping_cart.user.model.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name="cart_item")
+@Table(name = "cart_item")
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

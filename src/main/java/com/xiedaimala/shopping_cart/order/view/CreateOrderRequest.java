@@ -50,9 +50,6 @@ public class CreateOrderRequest {
         this.address = address;
     }
 
-    public CreateOrderRequest() {
-    }
-
     public CreateOrderRequest(long userId, long product, Integer quantity, String status, String address) {
         this.userId = userId;
         this.productId = product;

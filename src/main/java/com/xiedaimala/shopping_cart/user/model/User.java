@@ -8,16 +8,16 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="name",unique = true)
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL,
